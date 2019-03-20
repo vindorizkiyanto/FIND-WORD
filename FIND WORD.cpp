@@ -37,7 +37,7 @@ int findword(char *(input))
 		for (int j=0;j<15;j++){
 			if (input[0]==tts[i][j]){
 				
-				///HORIZONTAL KANAN 
+			///HORIZONTAL KANAN 
 				
 				for (int k=0;k<p_kata;k++){
 					if (input[k]==tts[i][j+k]){
@@ -55,7 +55,7 @@ int findword(char *(input))
 				}
 				cek=0;
 				
-				///HORIZONTAL KIRI 
+			///HORIZONTAL KIRI 
 				
 				for (int k=0;k<p_kata;k++){
 					if (input[k]==tts[i][j-k]){
@@ -73,7 +73,7 @@ int findword(char *(input))
 				}
 				cek=0;
 				
-				///VERTIKAL BAWAH 
+			///VERTIKAL BAWAH 
 				
 				for (int k=0;k<p_kata;k++){
 					if (input[k]==tts[i+k][j]){
@@ -91,7 +91,7 @@ int findword(char *(input))
 				}
 				cek=0;
 				
-				///Vertikal ATAS 
+			///Vertikal ATAS 
 				
 				for (int k=0;k<p_kata;k++){
 					if (input[k]==tts[i-k][j]){
@@ -111,7 +111,7 @@ int findword(char *(input))
 				}
 				cek=0;
 				
-				///DIAGONAL KIRI ATAS 
+			///DIAGONAL KIRI ATAS 
 				
 				for (int k=0;k<p_kata;k++){
 					if (input[k]==tts[i-k][j-k]){
@@ -129,3 +129,69 @@ int findword(char *(input))
 				}
 				cek=0;
         
+			///DIAGONAL KANAN ATAS 
+				
+				for (int k=0;k<p_kata;k++){
+					if (input[k]==tts[i-k][j+k]){
+						cek=k;
+					}
+					else{
+						break;
+					}
+				}
+				if (cek==p_kata-1){
+					kata_ditemukan+=1;
+				}
+				else{
+					kata_ditemukan+=0;
+				}
+				cek=0;
+				
+			///DIAGONAL KIRI BAWAH
+				
+				for (int k=0;k<p_kata;k++){
+					if (input[k]==tts[i+k][j-k]){
+						cek=k;
+					}
+					else{
+						break;
+					}
+				}
+				if (cek==p_kata-1){
+					kata_ditemukan+=1;
+				}
+				else{
+					kata_ditemukan+=0;
+				}
+				cek=0;
+				
+			///DIAGONAL KANAN BAWAH
+				
+				for (int k=0;k<p_kata;k++){
+					if (input[k]==tts[i+k][j+k]){
+						cek=k;
+					}
+					else{
+						break;
+					}
+				}
+				if (cek==p_kata-1){
+					kata_ditemukan+=1;
+				}
+				else{
+					kata_ditemukan+=0;
+				}
+				cek=0;
+				
+			}
+			
+		}
+	}
+	
+	if(kata_ditemukan>0){
+		cout<<endl<<"ADA"<<endl;
+	}
+	else {
+		cout<<endl<<"TIDAK ADA"<<endl;
+	} 	
+}
